@@ -1,0 +1,21 @@
+{
+    "name": "create-express-mongo-prod",
+    "version": "2.0.0",
+    "description": "CLI to scalable and a production-ready Express + MongoDB project",
+    "bin": {
+        "create-express-mongo-prod": "cli.js"
+    },
+    "dependencies": {
+        "degit": "^2.8.4",
+        "prompts": "^2.4.2"
+    },
+    "keywords": [
+        "express",
+        "mongodb",
+        "starter",
+        "production",
+        "cli"
+    ],
+    "author": "Suryansh Verma",
+    "license": "MIT"
+}
