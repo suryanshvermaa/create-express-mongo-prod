@@ -52,7 +52,7 @@ const { execSync } = require("child_process");
   const pkgPath = path.join(projectDir, "package.json");
   const pkgJson = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
 
-  pkgJson.name = projectDir;\
+  pkgJson.name = projectDir;
 
   fs.writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2));
   console.log(`\n📥 Installing dependencies...\n`);
