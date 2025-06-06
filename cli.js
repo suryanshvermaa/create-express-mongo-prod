@@ -40,7 +40,7 @@ const { execSync } = require("child_process");
   const jsRepo = "suryanshvermaa/nodeMongoJsTemplate";
   if(language.language=="typescript"){
     const orm = await prompts({
-      type: "confirm",
+      type: "select",
       name: "orm",
       message: "You are using in this project?(ORM)",
       choices:[
@@ -51,7 +51,7 @@ const { execSync } = require("child_process");
     });
     if(orm.orm==0){
       const graphQl = await prompts({
-        type: "confirm",
+        type: "select",
         name: "graphql",
         message: "Are you using graphQl in this project?",
         choices:[
