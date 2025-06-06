@@ -39,14 +39,32 @@ const { execSync } = require("child_process");
   const tsRepo = "suryanshvermaa/nodeMongoTsTemplate";
   const jsRepo = "suryanshvermaa/nodeMongoJsTemplate";
   if(language.language=="typescript"){
-    const graphQl = await prompts({
+    const orm = await prompts({
       type: "confirm",
-      name: "choise",
-      message: "Are you using graphQl in this project?",
-      initial: false
+      name: "orm",
+      message: "You are using in this project?(ORM)",
+      choices:[
+        { title: "mongoose with mongodb", value: 0 },
+        { title: "postgres with prima", value: 1 }
+      ],
+      initial: 0,
     });
-    if(graphQl.choise) execSync(`git clone --branch graphqlWithMongo --single-branch https://github.com/suryanshvermaa/nodeMongoTsTemplate.git && mv nodeMongoTsTemplate ${projectDir}`);
-    else await degit(tsRepo).clone(projectDir);
+    if(orm.orm==0){
+      const graphQl = await prompts({
+        type: "confirm",
+        name: "graphql",
+        message: "Are you using graphQl in this project?",
+        choices:[
+          { title: "Yes", value: true },
+          { title: "No", value: false }
+        ],
+        initial: 0,
+      });
+      if(graphQl.graphql) execSync(`git clone --branch graphqlWithMongo --single-branch https://github.com/suryanshvermaa/nodeMongoTsTemplate.git && mv nodeMongoTsTemplate ${projectDir}`);
+      else await degit(tsRepo).clone(projectDir);
+    }else{
+      execSync(`git clone --branch prisma --single-branch https://github.com/suryanshvermaa/nodeMongoTsTemplate.git && mv nodeMongoTsTemplate ${projectDir}`);
+    }
   }
   else if(language.language=="javascript"){
     await degit(jsRepo).clone(projectDir);
