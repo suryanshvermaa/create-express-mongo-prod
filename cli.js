@@ -38,9 +38,15 @@ const { execSync } = require("child_process");
   const projectDir = response.projectName;
   const tsRepo = "suryanshvermaa/nodeMongoTsTemplate";
   const jsRepo = "suryanshvermaa/nodeMongoJsTemplate";
-
   if(language.language=="typescript"){
-    await degit(tsRepo).clone(projectDir);
+    const graphQl = await prompts({
+      type: "confirm",
+      name: "choise",
+      message: "Are you using graphQl in this project?",
+      initial: false
+    });
+    if(graphQl.choise) execSync(`cd ${projectDir} && git clone --branch graphqlWithMongo --single-branch https://github.com/suryanshvermaa/nodeMongoTsTemplate.git`);
+    else await degit(tsRepo).clone(projectDir);
   }
   else if(language.language=="javascript"){
     await degit(jsRepo).clone(projectDir);
