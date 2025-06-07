@@ -1,6 +1,6 @@
 {
     "name": "create-express-mongo-prod",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "description": "CLI to scalable and a production-ready Express + MongoDB project",
     "bin": {
         "create-express-mongo-prod": "cli.js"
