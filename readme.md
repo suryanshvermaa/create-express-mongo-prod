@@ -1,4 +1,6 @@
 # create-express-mongo-prod
+[![npm version](https://img.shields.io/npm/v/create-express-mongo-prod)](https://www.npmjs.com/package/create-express-mongo-prod)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A CLI tool to quickly scaffold a production-ready Express.js application with MongoDB or PostgreSQL integration. This tool helps you create a scalable and well-structured Express backend project with best practices and modern development setup.
 
