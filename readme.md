@@ -1,17 +1,28 @@
 # create-express-mongo-prod
 
-A CLI tool to quickly scaffold a production-ready Express.js application with MongoDB integration. This tool helps you create a scalable and well-structured Express + MongoDB project with best practices and modern development setup.
+A CLI tool to quickly scaffold a production-ready Express.js application with MongoDB or PostgreSQL integration. This tool helps you create a scalable and well-structured Express backend project with best practices and modern development setup.
 
 ## Features
 
 - 🚀 Quick project scaffolding
 - 🔧 Support for both TypeScript and JavaScript
+- 🧩 Select MongoDB (Mongoose) or PostgreSQL (Prisma) at initialization
+- 🧬 Optional GraphQL setup
 - 📦 Multiple package manager support (npm, yarn, pnpm)
 - 🏗️ Production-ready project structure
 - 📝 Well-organized code structure
 - 🎯 Scalable architecture
 - 🎨 ESLint and Prettier configuration for consistent code style
 - ✨ Automatic code formatting on save
+
+## Installation & Usage
+
+You can create a new project using any of the following commands:
+
+Using npm:
+```bash
+npm create express-mongo-prod
+
 
 ## Installation & Usage
 
@@ -37,6 +48,8 @@ The CLI will guide you through the following steps:
 1. Enter your project name
 2. Choose your preferred package manager (npm, yarn, or pnpm)
 3. Select your preferred language (TypeScript or JavaScript)
+4. If you have choose Typescript then you can choose prisma with postgres or mongoose with mongoDB
+5. You can choose graphQL if you have choose Typescript+MongoDB
 
 Note: You don't need to install the package globally. The `create` command will automatically download and execute the latest version of the package.
 
