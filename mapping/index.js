@@ -2,7 +2,7 @@ const values=require("../state/values.js");
 const {languages,features,orms,packages}=require("../constants/index.js");
 const repos=require("../repos/index.js");
 
-const propertiesToBranch=()=>{
+exports.propertiesToBranch=()=>{
     // languages
     if(values.language==languages.TYPESCRIPT){
         const typescript=repos[0];
@@ -35,4 +35,10 @@ const propertiesToBranch=()=>{
     else{
         throw new Error("Error in language selecting")
     }
+}
+
+exports.getRepoName=()=>{
+    if(values.language==languages.TYPESCRIPT) return repos[0].repo;
+    else if(values.language==languages.JAVASCRIPT) return repos[1].repo;
+    else throw new Error("Repo not exists");
 }
