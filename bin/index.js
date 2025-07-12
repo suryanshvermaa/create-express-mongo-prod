@@ -5,39 +5,18 @@ const prompts = require("prompts");
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
+const { projectPrompt, packageManagerPrompt, languagePrompt } = require("../prompts/index.js");
 
 (async () => {
-  const response = await prompts({
-    type: "text",
-    name: "projectName",
-    message: "Project name:",
-    initial: "express-app"
-  });
-  const packageManager = await prompts({
-    type: "select",
-    name: "packageManager",
-    message: "Package manager:",
-    choices: [
-      { title: "npm", value: "npm" },
-      { title: "yarn", value: "yarn" },
-      { title: "pnpm", value: "pnpm" }
-    ],
-    initial: 0
-  });
-  const language = await prompts({
-    type: "select",
-    name: "language",
-    message: "language",
-    choices: [
-      { title: "typescript", value: "typescript" },
-      { title: "javascript", value: "javascript" }
-    ],
-    initial: 0
-  });
+  const response = await prompts(projectPrompt);
+  const packageManager = await prompts(packageManagerPrompt);
+  const language = await prompts(languagePrompt);
+
   const packageManagerChoice = packageManager.packageManager;
   const projectDir = response.projectName;
   const tsRepo = "suryanshvermaa/nodeMongoTsTemplate";
   const jsRepo = "suryanshvermaa/nodeMongoJsTemplate";
+  
   if(language.language=="typescript"){
     const orm = await prompts({
       type: "select",

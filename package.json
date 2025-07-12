@@ -3,7 +3,7 @@
     "version": "4.0.3",
     "description": "CLI to scalable and a production-ready Express + MongoDB project",
     "bin": {
-        "create-express-mongo-prod": "cli.js"
+        "create-express-mongo-prod": "bin/index.js"
     },
     "dependencies": {
         "degit": "^2.8.4",
