@@ -1,26 +1,21 @@
 #!/usr/bin/env node
 
-const degit = require("degit");
 const prompts = require("prompts");
-const fs = require("fs");
-const path = require("path");
-const { execSync } = require("child_process");
-const { projectPrompt, packageManagerPrompt, languagePrompt } = require("../prompts/index.js");
+const { projectPrompt, packageManagerPrompt, languagePrompt, featuresPrompt, ormsPrompt } = require("../prompts/index.js");
+const values=require("../state/values.js");
 
 (async () => {
-  const response = await prompts(projectPrompt);
+  const projectName = await prompts(projectPrompt);
   const packageManager = await prompts(packageManagerPrompt);
   const language = await prompts(languagePrompt);
-  const tools= await prompts()
+  const orm=await prompts(ormsPrompt);
+  const features=await prompts(featuresPrompt);
 
-  const features=await prompts({
-
-  })
-
-  const packageManagerChoice = packageManager.packageManager;
-  const projectDir = response.projectName;
-  const tsRepo = "suryanshvermaa/nodeMongoTsTemplate";
-  const jsRepo = "suryanshvermaa/nodeMongoJsTemplate";
+  values.projectName = projectName.projectName;
+  values.packageManager = packageManager.packageManager;
+  values.projectName = response.projectName;
+  values.databaseORM = orm.orm;
+  values.features=[...features];
   
   if(language.language=="typescript"){
     const orm = await prompts({
