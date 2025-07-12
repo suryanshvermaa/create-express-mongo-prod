@@ -18,7 +18,6 @@ const repos=[
                 branch:{
                     EXPRESS:"prisma",
                     AWS_S3:"express-prisma-awsS3",
-                    graphQL:"graphqlWithPrisma",
                     graphQL_AWS_S3:"express-mongoose-graphql-awsS3_prisma",
                 }
             }
@@ -42,10 +41,9 @@ const repos=[
             {
                 name: "POSTGRES",
                 branch: {
-                    EXPRESS:"main",
-                    AWS_S3:"awsS3_prisma",
-                    graphQL:"graphqlWithPrisma",
-                    graphQL_AWS_S3:"express-mongoose-graphql-awsS3_prisma",
+                    EXPRESS:"prisma",
+                    AWS_S3:"express-prisma-awsS3",
+                    graphQL_AWS_S3:"express-mongoose-graphql-awsS3",
                 }
             }
         ]
