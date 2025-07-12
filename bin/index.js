@@ -11,6 +11,29 @@ const { projectPrompt, packageManagerPrompt, languagePrompt } = require("../prom
   const response = await prompts(projectPrompt);
   const packageManager = await prompts(packageManagerPrompt);
   const language = await prompts(languagePrompt);
+  // type: 'multiselect',
+  //   name: 'features',
+  //   message: 'Select features to include:',
+  //   choices: [
+  //     { title: 'ESLint', value: 'eslint' },
+  //     { title: 'Prettier', value: 'prettier' },
+  //     { title: 'Jest', value: 'jest' },
+  //     { title: 'Docker', value: 'docker' }
+  //   ],
+  //   hint: '- Space to select. Return to submit',
+  //   min: 1
+  const features= await prompts({
+    type:'multiselect',
+    name: 'tools',
+    choices: [
+      { title: 'ESLint' , value: 'eslint' },
+      { title: 'Prettier', value: 'prettier' },
+      { title: 'Dockerfile', value: 'Dockerfile' },
+      { title: 'Dockerfile', value: 'docker-compose' },
+      { title: 'Husky', value: 'husky' }
+    ],
+    hint: '- Space to select.'
+  })
 
   const packageManagerChoice = packageManager.packageManager;
   const projectDir = response.projectName;
