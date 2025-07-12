@@ -5,7 +5,7 @@ const values={
     packageManager: packages.NPM,
     language: languages.JAVASCRIPT,
     databaseORM: orms.MONGOOSE,
-    features: [],
+    features: new Array(0),
 }
 
 module.exports=values;

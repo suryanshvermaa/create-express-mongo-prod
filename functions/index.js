@@ -8,9 +8,9 @@ const path=require("path");
  * @param {string} branch 
  */
 exports.cloneRepo=async(repo,branch)=>{
-    console.log(`\n📦 Cloning starter template\n`)
+    console.log(`\n📦 Cloning starter template...`)
     execSync(`git clone --branch ${branch} --single-branch ${repo}`);
-    console.log(`\n📦 Cloning template sucessful.\n`)
+    console.log(`📦 Cloning template sucessful.\n`)
 }
 
 /**
@@ -19,7 +19,8 @@ exports.cloneRepo=async(repo,branch)=>{
  * @param {string} repoName
  */
 exports.renameProject=async(projectName,repoName)=>{
-    execSync(`mv ${repoName}/* ${projectName}`)
+    repoName=repoName.slice(repoName.lastIndexOf("/")+1,repoName.indexOf(".git"));
+    execSync(`mv ${repoName} ${projectName}`);
 }
 
 /**
@@ -27,7 +28,7 @@ exports.renameProject=async(projectName,repoName)=>{
  * @param {string} projectName 
  */
 exports.packageNameInpackageJson=async(projectName)=>{
-    const pkgPath = path.join(projectDir, "package.json");
+    const pkgPath = path.resolve(`${projectName}/package.json`);
     const pkgJson = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
     if(projectName=="."){
         const pwdArray=process.cwd().split("/");
@@ -47,9 +48,9 @@ exports.packageNameInpackageJson=async(projectName)=>{
 exports.installDependencies=(packageName,packageManager)=>{
     console.log(`\n📥 Installing dependencies...\n`);
     if(packageName=="."){
-        execSync(`${packageManager} install`);
+        execSync(`${packageManager} install`,{stdio:"inherit"});
     }else{
-        execSync(`cd ${packageName} && ${packageManager} install`);
+        execSync(`cd ${packageName} && ${packageManager} install`,{stdio:"inherit"});
     }
     console.log(`\n🌐 Dependencies installation sucessful\n`);
 }
