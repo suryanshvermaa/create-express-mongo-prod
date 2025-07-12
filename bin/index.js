@@ -16,7 +16,6 @@ const {getRepoName,getBranchName}=require("../mapping/index.js");
   values.projectName = projectName.projectName;
   values.packageManager = packageManager.packageManager;
   values.language = language;
-  values.projectName = response.projectName;
   values.databaseORM = orm.orm;
   values.features=[...features];
   
