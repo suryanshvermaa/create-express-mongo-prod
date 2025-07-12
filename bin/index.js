@@ -15,15 +15,15 @@ const {getRepoName,getBranchName}=require("../mapping/index.js");
 
   values.projectName = projectName.projectName;
   values.packageManager = packageManager.packageManager;
-  values.language = language;
+  values.language = language.language;
   values.databaseORM = orm.orm;
-  values.features=[...features];
+  values.features.push(...(features.features));
   
   // clone repo
   const repo=getRepoName();
   const branch=getBranchName();
   await cloneRepo(repo,branch);
   await renameProject(values.projectName, repo); 
-  await packageNameInpackageJson(projectName);
+  await packageNameInpackageJson(values.projectName);
   await installDependencies(values.projectName,values.packageManager);
 })();
