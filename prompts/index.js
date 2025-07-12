@@ -45,6 +45,7 @@ exports.featuresPrompt = {
     type: "multiselect",
     name: "features",
     message: "Select backend features to include:",
+    instructions: false,
     choices: [
         { title: "GraphQL", value: features.GRAPH_QL },
         { title: "AWS S3", value: features.AWS_S3 }
@@ -57,6 +58,7 @@ exports.featuresPrompt = {
 exports.toolsPrompt={
     type:'multiselect',
     name: 'tools',
+    instructions: false,
     choices: [
         { title: 'ESLint' , value: tools.ES_LINT },
         { title: 'Prettier', value: tools.PRETTIER },
