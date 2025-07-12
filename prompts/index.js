@@ -21,8 +21,8 @@ exports.packageManagerPrompt={
 
 exports.languagePrompt={
     type: "select",
-    name: "language: ",
-    message: "language",
+    name: "language",
+    message: "language: ",
     choices: [
         { title: "javascript", value: languages.JAVASCRIPT },
         { title: "typescript", value: languages.TYPESCRIPT },
