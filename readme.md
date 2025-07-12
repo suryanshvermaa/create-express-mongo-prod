@@ -142,10 +142,6 @@ After creating your project:
 - **Docker**: Containerized application setup
 - **Docker Compose**: Multi-service development environment
 
-## Version
-
-Current version: 5.0.0
-
 ## License
 
 MIT © Suryansh Verma
