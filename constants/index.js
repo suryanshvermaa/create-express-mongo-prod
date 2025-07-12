@@ -9,6 +9,11 @@ export const languages={
     JAVASCRIPT: "javascript",
 }
 
+export const orms={
+    MONGOOSE: "mongoose",
+    PRISMA:"prisma"
+}
+
 export const features={
     GRAPH_QL: "graphQl",
     AWS_S3: "awsS3"
