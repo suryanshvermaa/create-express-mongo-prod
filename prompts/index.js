@@ -1,3 +1,5 @@
+const {packages, languages, features, tools}=require("../constants/index.js");
+
 exports.projectPrompt={
     type: "text",
     name: "projectName",
@@ -10,9 +12,9 @@ exports.packageManagerPrompt={
     name: "packageManager",
     message: "Package manager:",
     choices: [
-        { title: "npm", value: "npm" },
-        { title: "yarn", value: "yarn" },
-        { title: "pnpm", value: "pnpm" }
+        { title: "npm", value:  packages.NPM},
+        { title: "yarn", value: packages.YARN },
+        { title: "pnpm", value: packages.PNPM }
     ],
     initial: 0
 }
@@ -22,8 +24,8 @@ exports.languagePrompt={
     name: "language",
     message: "language",
     choices: [
-        { title: "typescript", value: "typescript" },
-        { title: "javascript", value: "javascript" }
+        { title: "typescript", value: languages.TYPESCRIPT },
+        { title: "javascript", value: languages.JAVASCRIPT }
     ],
     initial: 0
 }
@@ -33,23 +35,23 @@ exports.featuresPrompt = {
     name: "features",
     message: "Select backend features to include:",
     choices: [
-        { title: "GraphQL", value: "graphql" },
-        { title: "AWS S3", value: "awsS3" }
+        { title: "GraphQL", value: features.GRAPH_QL },
+        { title: "AWS S3", value: features.AWS_S3 }
     ],
     hint: "- Space to select. Return to submit",
     min: 0
 };
 
 // In future may be i can add
-exports.tools={
+exports.toolsPrompt={
     type:'multiselect',
     name: 'tools',
     choices: [
-        { title: 'ESLint' , value: 'eslint' },
-        { title: 'Prettier', value: 'prettier' },
-        { title: 'Dockerfile', value: 'Dockerfile' },
-        { title: 'Dockerfile', value: 'docker-compose' },
-        { title: 'Husky', value: 'husky' }
+        { title: 'ESLint' , value: tools.ES_LINT },
+        { title: 'Prettier', value: tools.PRETTIER },
+        { title: 'Dockerfile', value: tools.DOCKER_FILE },
+        { title: 'Docker Compose', value: tools.DOCKER_COMPOSE },
+        { title: 'Husky', value: tools.HUSKY }
     ],
     hint: '- Space to select.'
 }
