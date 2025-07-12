@@ -1,16 +1,16 @@
-const {packages, languages, features, tools}=require("../constants/index.js");
+const {packages, languages, features, tools, orms}=require("../constants/index.js");
 
 exports.projectPrompt={
     type: "text",
     name: "projectName",
-    message: "Project name:",
+    message: "Project name: ",
     initial: "express-app"
 }
 
 exports.packageManagerPrompt={
     type: "select",
     name: "packageManager",
-    message: "Package manager:",
+    message: "Package manager: ",
     choices: [
         { title: "npm", value:  packages.NPM},
         { title: "yarn", value: packages.YARN },
@@ -21,11 +21,22 @@ exports.packageManagerPrompt={
 
 exports.languagePrompt={
     type: "select",
-    name: "language",
+    name: "language: ",
     message: "language",
     choices: [
+        { title: "javascript", value: languages.JAVASCRIPT },
         { title: "typescript", value: languages.TYPESCRIPT },
-        { title: "javascript", value: languages.JAVASCRIPT }
+    ],
+    initial: 0
+}
+
+exports.ormsPrompt={
+    type: "select",
+    name: "orm",
+    message: "orm: ",
+    choices: [
+        { title: "mongoose with MongoDB", value: orms.MONGOOSE },
+        { title: "prisma with postgres", value: orms.PRISMA },
     ],
     initial: 0
 }
@@ -38,7 +49,7 @@ exports.featuresPrompt = {
         { title: "GraphQL", value: features.GRAPH_QL },
         { title: "AWS S3", value: features.AWS_S3 }
     ],
-    hint: "- Space to select. Return to submit",
+    hint: "- Space to select.",
     min: 0
 };
 
