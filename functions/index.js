@@ -1,4 +1,3 @@
-// git clone --branch graphqlWithMongo --single-branch https://github.com/suryanshvermaa/nodeMongoTsTemplate.git
 const {execSync}=require("child_process");
 
 /**
