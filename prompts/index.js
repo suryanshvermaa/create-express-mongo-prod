@@ -27,3 +27,29 @@ exports.languagePrompt={
     ],
     initial: 0
 }
+
+exports.featuresPrompt = {
+    type: "multiselect",
+    name: "features",
+    message: "Select backend features to include:",
+    choices: [
+        { title: "GraphQL", value: "graphql" },
+        { title: "AWS S3", value: "awsS3" }
+    ],
+    hint: "- Space to select. Return to submit",
+    min: 0
+};
+
+// In future may be i can add
+exports.tools={
+    type:'multiselect',
+    name: 'tools',
+    choices: [
+        { title: 'ESLint' , value: 'eslint' },
+        { title: 'Prettier', value: 'prettier' },
+        { title: 'Dockerfile', value: 'Dockerfile' },
+        { title: 'Dockerfile', value: 'docker-compose' },
+        { title: 'Husky', value: 'husky' }
+    ],
+    hint: '- Space to select.'
+}
