@@ -2,7 +2,7 @@ const values=require("../state/values.js");
 const {languages,features,orms,packages}=require("../constants/index.js");
 const repos=require("../repos/index.js");
 
-exports.propertiesToBranch=()=>{
+exports.getBranchName=()=>{
     // languages
     if(values.language==languages.TYPESCRIPT){
         const typescript=repos[0];
