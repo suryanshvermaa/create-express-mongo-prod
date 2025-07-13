@@ -18,7 +18,9 @@ exports.getBranchName=()=>{
         else if(values.databaseORM==orms.PRISMA){
             const prisma=typescript.databases[1];
             if(values.features.length==0) return prisma.branch.EXPRESS;
+            else if(values.features.includes(features.AWS_S3)&&values.features.includes(features.GRAPH_QL)) return prisma.branch.graphQL_AWS_S3;
             else if(values.features.includes(features.AWS_S3)) return prisma.branch.AWS_S3;
+            else if(values.features.includes(features.GRAPH_QL)) return prisma.branch.graphQL;
             else throw new Error("This is feature under development in typescript!")
         }
         else throw new Error("This orm is not exists.");
@@ -28,6 +30,16 @@ exports.getBranchName=()=>{
         if(values.databaseORM==orms.MONGOOSE){
             const mongoose=javascript.databases[0];
             if(values.features.length==0) return mongoose.branch.EXPRESS;
+            else if(values.features.includes(features.AWS_S3)&&values.features.includes(features.GRAPH_QL)) return mongoose.branch.graphQL_AWS_S3;
+            else if(values.features.includes(features.AWS_S3)) return mongoose.branch.AWS_S3;
+            else if(values.features.includes(features.GRAPH_QL)) return mongoose.branch.graphQL;
+            else throw new Error("This is feature under development in javascript!")
+        }else if(values.databaseORM==orms.PRISMA){
+            const prisma=javascript.databases[1];
+            if(values.features.length==0) return prisma.branch.EXPRESS;
+            else if(values.features.includes(features.AWS_S3)&&values.features.includes(features.GRAPH_QL)) return prisma.branch.graphQL_AWS_S3;
+            else if(values.features.includes(features.AWS_S3)) return prisma.branch.AWS_S3;
+            else if(values.features.includes(features.GRAPH_QL)) return prisma.branch.graphQL;
             else throw new Error("This is feature under development in javascript!")
         }
         else throw new Error("This orm is not exists.");
