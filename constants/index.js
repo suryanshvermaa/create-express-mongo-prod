@@ -16,7 +16,8 @@ export const orms={
 
 export const features={
     GRAPH_QL: "graphQl",
-    AWS_S3: "awsS3"
+    AWS_S3: "awsS3",
+    BULL_MQ: "bullmq",
 }
 
 export const tools={

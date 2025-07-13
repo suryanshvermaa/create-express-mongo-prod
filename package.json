@@ -6,6 +6,8 @@
         "create-express-mongo-prod": "bin/index.js"
     },
     "dependencies": {
+        "bullmq": "^5.56.4",
+        "dotenv": "^17.2.0",
         "prompts": "^2.4.2"
     },
     "keywords": [
@@ -14,6 +16,9 @@
         "starter",
         "production",
         "cli"
+    ],
+    "files": [
+        "services"
     ],
     "author": "Suryansh Verma",
     "license": "MIT"
