@@ -62,7 +62,7 @@ exports.addService=async(serviceName)=>{
     const packageName=values.projectName;
     if(packageName=="."){
         execSync(`mkdir -p src/services && cd src/services && mkdir -p ${serviceName}`);
-        const srcServicePath = path.join(__dirname, 'services', serviceName , language);
+        const srcServicePath = path.resolve(__dirname,'../','services', serviceName , language);
         const distServicePath=path.resolve(`src/services/${serviceName}`);
         const files=fs.readdirSync(srcServicePath);
         for(const file of files){
