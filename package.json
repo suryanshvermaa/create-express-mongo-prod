@@ -1,13 +1,11 @@
 {
     "name": "create-express-mongo-prod",
-    "version": "4.2.1",
+    "version": "4.2.4",
     "description": "CLI to scalable and a production-ready Express projects",
     "bin": {
         "create-express-mongo-prod": "bin/index.js"
     },
     "dependencies": {
-        "bullmq": "^5.56.4",
-        "dotenv": "^17.2.0",
         "prompts": "^2.4.2"
     },
     "keywords": [
@@ -16,9 +14,6 @@
         "starter",
         "production",
         "cli"
-    ],
-    "files": [
-        "services"
     ],
     "author": "Suryansh Verma",
     "license": "MIT"

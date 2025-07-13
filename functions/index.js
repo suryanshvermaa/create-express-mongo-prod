@@ -11,18 +11,8 @@ const { features } = require("../constants/index.js");
  */
 exports.cloneRepo=async(repo,branch)=>{
     console.log(`\n📦 Cloning starter template...`)
-    execSync(`git clone --branch ${branch} --single-branch ${repo}`);
+    execSync(`git clone --branch ${branch} --single-branch ${repo} ${values.projectName}`);
     console.log(`📦 Cloning template sucessful.\n`)
-}
-
-/**
- * 
- * @param {string} projectName
- * @param {string} repoName
- */
-exports.renameProject=async(projectName,repoName)=>{
-    repoName=repoName.slice(repoName.lastIndexOf("/")+1,repoName.indexOf(".git"));
-    execSync(`mv ${repoName} ${projectName}`);
 }
 
 /**

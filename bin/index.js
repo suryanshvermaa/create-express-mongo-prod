@@ -23,7 +23,6 @@ const {getRepoName,getBranchName}=require("../mapping/index.js");
   const repo=getRepoName();
   const branch=getBranchName();
   await cloneRepo(repo,branch);
-  await renameProject(values.projectName, repo);
   await resolveExtraDependencies();
   await packageNameInpackageJson(values.projectName);
   await installDependencies(values.projectName,values.packageManager);
