@@ -2,7 +2,7 @@ const repos=[
     {
         id: 1,
         language: "Typescript",
-        repo:"https://github.com/suryanshvermaa/nodeMongoTsTemplate.git",
+        repo:"suryanshvermaa/nodeMongoTsTemplate.git",
         databases:[
             {
                 name: "MONGO",
@@ -28,7 +28,7 @@ const repos=[
     {
         id: 2,
         language: "Javascript",
-        repo: "https://github.com/suryanshvermaa/nodeMongoJsTemplate.git",
+        repo: "suryanshvermaa/nodeMongoJsTemplate.git",
         databases:[
             {
                 name: "MONGO",

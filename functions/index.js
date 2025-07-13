@@ -3,6 +3,7 @@ const fs=require("fs");
 const path=require("path");
 const values = require("../state/values.js");
 const { features } = require("../constants/index.js");
+const degit=require("degit");
 
 /**
  * 
@@ -11,7 +12,7 @@ const { features } = require("../constants/index.js");
  */
 exports.cloneRepo=async(repo,branch)=>{
     console.log(`\n📦 Cloning starter template...`)
-    execSync(`git clone --branch ${branch} --single-branch ${repo} ${values.projectName}`);
+    await degit(`${repo}#${branch}`).clone(values.projectName);
     console.log(`📦 Cloning template sucessful.\n`)
 }
 

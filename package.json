@@ -6,6 +6,7 @@
         "create-express-mongo-prod": "bin/index.js"
     },
     "dependencies": {
+        "degit": "^2.8.4",
         "prompts": "^2.4.2"
     },
     "keywords": [
