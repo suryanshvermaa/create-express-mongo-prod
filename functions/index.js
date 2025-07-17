@@ -75,4 +75,8 @@ exports.resolveExtraDependencies=async()=>{
         this.addService(features.BULL_MQ);
         execSync(`${values.packageManager} install bullmq`,{stdio:"inherit"});
     }
+    else if(values.features.includes(features.SOCKET_IO)){
+        this.addService(features.SOCKET_IO);
+        execSync(`${values.packageManager} install socket.io`,{stdio:"inherit"});
+    }
 }
