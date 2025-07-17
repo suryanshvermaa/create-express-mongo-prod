@@ -50,6 +50,7 @@ exports.featuresPrompt = {
         { title: "GraphQL", value: features.GRAPH_QL },
         { title: "AWS S3", value: features.AWS_S3 },
         { title: "BullMq", value: features.BULL_MQ },
+        { title: "Socket io", value: features.SOCKET_IO },
     ],
     hint: "- Space to select.",
     min: 0
