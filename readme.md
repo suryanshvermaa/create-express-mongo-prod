@@ -61,12 +61,10 @@ The CLI will guide you through the following steps:
 5. **Features** (Optional): Select additional features:
    - GraphQL with Apollo Server
    - AWS S3 integration for file uploads
-6. **Development Tools** (Optional): Choose development tools:
-   - ESLint for code linting
-   - Prettier for code formatting
-   - Dockerfile for containerization
-   - Docker Compose for multi-container setup
-   - Husky for Git hooks
+   - BullMQ for queue processing
+   - Socket.io
+   - Kafka
+   - Redis
 
 Note: You don't need to install the package globally. The `create` command will automatically download and execute the latest version of the package.
 
