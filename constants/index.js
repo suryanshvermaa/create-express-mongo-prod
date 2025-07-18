@@ -18,7 +18,8 @@ export const features={
     GRAPH_QL: "graphQl",
     AWS_S3: "awsS3",
     BULL_MQ: "bullmq",
-    SOCKET_IO: "socket.io"
+    SOCKET_IO: "socket.io",
+    KAFKA: "kafka",
 }
 
 export const tools={

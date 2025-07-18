@@ -78,5 +78,8 @@ exports.resolveExtraDependencies=async()=>{
     else if(values.features.includes(features.SOCKET_IO)){
         this.addService(features.SOCKET_IO);
         execSync(`${values.packageManager} install socket.io`,{stdio:"inherit"});
+    }else if(values.features.includes(features.KAFKA)){
+        this.addService(features.KAFKA);
+        execSync(`${values.packageManager} install kafkajs`,{stdio:"inherit"});
     }
 }
