@@ -81,5 +81,8 @@ exports.resolveExtraDependencies=async()=>{
     }else if(values.features.includes(features.KAFKA)){
         this.addService(features.KAFKA);
         execSync(`${values.packageManager} install kafkajs`,{stdio:"inherit"});
+    }else if(values.features.includes(features.REDIS)){
+        this.addService(features.REDIS);
+        execSync(`${values.packageManager} install ioredis`,{stdio:"inherit"});
     }
 }
