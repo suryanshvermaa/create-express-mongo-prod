@@ -51,7 +51,8 @@ exports.featuresPrompt = {
         { title: "AWS S3", value: features.AWS_S3 },
         { title: "BullMq", value: features.BULL_MQ },
         { title: "Socket io", value: features.SOCKET_IO },
-        { title: "Kafka", value: features.KAFKA }
+        { title: "Kafka", value: features.KAFKA },
+        { title: "Redis", value: features.REDIS },
     ],
     hint: "- Space to select.",
     min: 0

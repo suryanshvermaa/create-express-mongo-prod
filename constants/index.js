@@ -20,6 +20,7 @@ export const features={
     BULL_MQ: "bullmq",
     SOCKET_IO: "socket.io",
     KAFKA: "kafka",
+    REDIS: "redis",
 }
 
 export const tools={
