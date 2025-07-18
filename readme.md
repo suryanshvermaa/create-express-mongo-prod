@@ -4,6 +4,12 @@
 
 A comprehensive CLI tool to quickly scaffold production-ready Express.js applications with multiple database options, advanced features, and modern development tools. This tool helps you create scalable and well-structured Express projects with best practices and enterprise-grade setup.
 
+## Now includes advanced service integrations:
+- Redis caching (JS/TS)
+- Kafka event streaming (JS/TS)
+- Socket.IO real-time communication (JS/TS)
+- BullMQ job queues (JS/TS)
+
 ## Features
 
 - 🚀 Quick project scaffolding with interactive CLI
