@@ -53,18 +53,24 @@ exports.addService=async(serviceName)=>{
     const packageName=values.projectName;
     if(packageName=="."){
         execSync(`mkdir -p src/services && cd src/services && mkdir -p ${serviceName}`);
+        if(values.features.includes(features.KAFKA)) execSync(`mkdir -p src/services/${serviceName}/scripts`);
         const srcServicePath = path.resolve(__dirname,'../','services', serviceName , language);
         const distServicePath=path.resolve(`src/services/${serviceName}`);
-        const files=fs.readdirSync(srcServicePath);
+        const files=fs.readdirSync(srcServicePath,{recursive:true});
         for(const file of files){
+            const stats = fs.statSync(srcServicePath+"/"+file,distServicePath+"/"+file);
+            if(stats.isDirectory()) continue;
             fs.copyFileSync(srcServicePath+"/"+file,distServicePath+"/"+file)
         }
     }else{
         execSync(`mkdir -p ${packageName}/src/services && cd ${packageName}/src/services && mkdir -p ${serviceName}`);
+        if(values.features.includes(features.KAFKA)) execSync(`mkdir -p ${packageName}/src/services/${serviceName}/scripts`);
         const srcServicePath = path.resolve(__dirname,'../','services', serviceName , language);
         const distServicePath=path.resolve(`${packageName}/src/services/${serviceName}`);
-        const files=fs.readdirSync(srcServicePath);
+        const files=fs.readdirSync(srcServicePath,{recursive:true});
         for(const file of files){
+            const stats = fs.statSync(srcServicePath+"/"+file,distServicePath+"/"+file);
+            if(stats.isDirectory()) continue;
             fs.copyFileSync(srcServicePath+"/"+file,distServicePath+"/"+file)
         }
     }
@@ -72,17 +78,36 @@ exports.addService=async(serviceName)=>{
 
 exports.resolveExtraDependencies=async()=>{
     if(values.features.includes(features.BULL_MQ)){
-        this.addService(features.BULL_MQ);
+        await this.addService(features.BULL_MQ);
+        const dockerFilePath = path.resolve(__dirname,'../','dockerfiles', `docker-compose.${features.REDIS}.yml`);
+        const content=fs.readFileSync(dockerFilePath,"utf-8");
+        const dockerComposePath=path.join(values.projectName,"docker-compose.yml");
+        fs.appendFileSync(dockerComposePath,"\n"+content);
+        fs.appendFileSync(path.join(values.projectName,".gitignore"),"\nredis-db");
+        fs.appendFileSync(path.join(values.projectName,".env"),"\nREDIS_PASSWORD=pass1234");
         execSync(`${values.packageManager} install bullmq`,{stdio:"inherit"});
     }
-    else if(values.features.includes(features.SOCKET_IO)){
-        this.addService(features.SOCKET_IO);
+    if(values.features.includes(features.SOCKET_IO)){
+        await this.addService(features.SOCKET_IO);
         execSync(`${values.packageManager} install socket.io`,{stdio:"inherit"});
-    }else if(values.features.includes(features.KAFKA)){
-        this.addService(features.KAFKA);
+    }if(values.features.includes(features.KAFKA)){
+        await this.addService(features.KAFKA);
+        const dockerFilePath = path.resolve(__dirname,'../','dockerfiles', `docker-compose.${features.KAFKA}.yml`);
+        const content=fs.readFileSync(dockerFilePath,"utf-8");
+        const dockerComposePath=path.join(values.projectName,"docker-compose.yml");
+        fs.appendFileSync(dockerComposePath,"\n"+content);
+        fs.appendFileSync(path.join(values.projectName,".gitignore"),"\nkafka_data");
         execSync(`${values.packageManager} install kafkajs`,{stdio:"inherit"});
-    }else if(values.features.includes(features.REDIS)){
-        this.addService(features.REDIS);
+    }if(values.features.includes(features.REDIS)){
+        await this.addService(features.REDIS);
+        if(!values.features.includes(features.BULL_MQ)){
+            const dockerFilePath = path.resolve(__dirname,'../','dockerfiles', `docker-compose.${features.REDIS}.yml`);
+            const content=fs.readFileSync(dockerFilePath,"utf-8");
+            const dockerComposePath=path.join(values.projectName,"docker-compose.yml");
+            fs.appendFileSync(dockerComposePath,"\n"+content);
+            fs.appendFileSync(path.join(values.projectName,".gitignore"),"\nredis-db");
+            fs.appendFileSync(path.join(values.projectName,".env"),"\nREDIS_PASSWORD=pass1234");
+        }
         execSync(`${values.packageManager} install ioredis`,{stdio:"inherit"});
     }
 }
