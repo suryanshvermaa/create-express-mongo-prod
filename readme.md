@@ -2,9 +2,11 @@
 [![npm version](https://img.shields.io/npm/v/create-express-mongo-prod)](https://www.npmjs.com/package/create-express-mongo-prod)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-<a style="background-color:red; color: white; font-style: bold; padding: 2px; border-radius: 4px" href="https://dev-doc.netlify.app/docs/Nodejs/productionSetupNodejs"> docs </a>
-
 A comprehensive CLI tool to quickly scaffold production-ready Express.js applications with multiple database options, advanced features, and modern development tools. This tool helps you create scalable and well-structured Express projects with best practices and enterprise-grade setup.
+
+## 📚 Documentation
+For full documentation, please visit:
+👉 [Project Documentation](https://dev-doc.netlify.app/docs/Nodejs/nodejsProduction)
 
 ## Now includes advanced service integrations:
 - Redis caching (JS/TS)
