@@ -1,0 +1,10 @@
+node_modules
+pnpm-lock.yaml
+mongo-data
+*.log
+*.local
+*.local.*
+.env
+.env.local
+package-lock.jsonss
+package-lock.json

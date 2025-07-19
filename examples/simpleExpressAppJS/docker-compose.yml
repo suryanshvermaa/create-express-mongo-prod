@@ -1,0 +1,21 @@
+services:
+    my-app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "3000:3000"
+        depends_on:
+            - my-db
+        environment:
+            - PORT=3000
+            - MONGO_URI=mongodb://mydb:mydbpassword@my-db:27017/mydb
+    my-db:
+        image: mongo:latest
+        ports:
+            - "27017:27017"
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=mydb
+            - MONGO_INITDB_ROOT_PASSWORD=mydbpassword
+        volumes:
+            - ./mongo-data:/data/db

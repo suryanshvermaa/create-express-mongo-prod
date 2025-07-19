@@ -1,0 +1,45 @@
+{
+	"express-controller": {
+		"prefix": ["con", "controller"],
+		"body": [
+			"/**",
+			"*",
+			"* @description route for creating user",
+			"* @route POST /api/user/signup",
+			"* @access Public",
+			"* @param {import(\"express\").Request} req",
+			"* @param {import(\"express\").Response} res",
+			"*/",
+			"export const ${1:createUser} = asyncHandler(async (req, res) => {",
+			"    ${2}",
+			"});",
+		],
+	},
+	"express-router": {
+		"prefix": ["route", "router", "rou"],
+		"body": [
+			"import { Router } from \"express\";",
+			"const ${1:userRouter} = Router();",
+			"",
+			"${1:userRouter}",
+			"",
+			"export default ${1:userRouter};",
+		],
+	},
+	"mongoose-model": {
+		"prefix": ["model", "schema", "mod", "sch"],
+		"body": [
+			"import mongoose, { Schema } from \"mongoose\";",
+			"",
+			"const ${1:User}Schema = new Schema(",
+			"   {",
+			"       ",
+			"   },",
+			"   { timestamps: true }",
+			");",
+			"",
+			"const ${1:User} = mongoose.model(\"${1:User}\", ${1:User}Schema);",
+			"export default ${1:User};",
+		],
+	},
+}
