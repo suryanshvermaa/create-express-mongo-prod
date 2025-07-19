@@ -1,0 +1,11 @@
+node_modules
+coverage
+mongo-data
+*.log
+*.env
+*.tsbuildinfo
+*.tgz
+*.zip
+*.tar
+*.tar.gz
+*.tar.xz 
