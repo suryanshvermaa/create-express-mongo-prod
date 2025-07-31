@@ -21,6 +21,7 @@ export const features={
     SOCKET_IO: "socket.io",
     KAFKA: "kafka",
     REDIS: "redis",
+    K8S_MANIFESTS: "k8s_manifests"
 }
 
 export const tools={
