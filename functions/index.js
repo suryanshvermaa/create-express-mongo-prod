@@ -109,5 +109,7 @@ exports.resolveExtraDependencies=async()=>{
             fs.appendFileSync(path.join(values.projectName,".env"),"\nREDIS_PASSWORD=pass1234");
         }
         execSync(`${values.packageManager} install ioredis`,{stdio:"inherit"});
+    }if(values.features.includes(features.K8S_MANIFESTS)){
+        // logic to copy k8s manifests
     }
 }
